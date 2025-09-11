@@ -34,7 +34,7 @@ If you’d like to run my portfolio locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/portfolio.git
+https://github.com/Chandan785/updatedportfolio.git
 
 # Install dependencies
 npm install
