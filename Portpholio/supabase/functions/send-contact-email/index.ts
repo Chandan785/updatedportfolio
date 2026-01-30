@@ -34,8 +34,20 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const resend = new Resend(resendApiKey);
-    const fromEmail = Deno.env.get("RESEND_FROM_EMAIL") ?? "onboarding@resend.dev";
+    const fromEmail = Deno.env.get("RESEND_FROM_EMAIL");
     const toEmail = Deno.env.get("CONTACT_TO_EMAIL") ?? "chandankumar700785@gmail.com";
+
+    if (!fromEmail) {
+      return new Response(
+        JSON.stringify({
+          error: "Missing RESEND_FROM_EMAIL. Set a verified sender address in Supabase secrets.",
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     let payload: ContactEmailRequest;
     try {
@@ -69,6 +81,7 @@ const handler = async (req: Request): Promise<Response> => {
       from: `Portfolio Contact <${fromEmail}>`,
       to: [toEmail],
       subject: `Portfolio Contact: ${subject}`,
+      text: `New Contact Form Submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -76,7 +89,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Subject:</strong> ${subject}</p>
         <hr />
         <h3>Message:</h3>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
       `,
       reply_to: email,
     });

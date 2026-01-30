@@ -44,7 +44,7 @@ const Contact = () => {
       if (error) {
         let message = error.message;
         try {
-          const contextBody = (error as any)?.context?.body;
+          const contextBody = (error as any)?.context?.body ?? (error as any)?.context?.response?.body;
           const parsed = typeof contextBody === "string" ? JSON.parse(contextBody) : contextBody;
           if (parsed?.error) {
             message = parsed.error;
