@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+
+/* Seamless Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-fast:hover {
+  animation-play-state: paused;
+}
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 180 100% 47%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 180 100% 47%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 100% 47%;
+    --input: 0 0% 15%;
+    --ring: 180 100% 47%;
+
+    --radius: 0.5rem;
+
+    /* Custom portfolio colors */
+    --cyan: 180 100% 47%;
+    --cyan-glow: 180 100% 60%;
+    --dark-bg: 0 0% 5%;
+    --darker-bg: 0 0% 4%;
+    --card-bg: 0 0% 7%;
+    --section-alt: 0 0% 9%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 180 100% 47%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 180 100% 47%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 100% 47%;
+    --input: 0 0% 15%;
+    --ring: 180 100% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-cyan-300 bg-clip-text text-transparent;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+  }
+
+  .border-glow {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 40px hsl(var(--primary) / 0.2);
+  }
+}
