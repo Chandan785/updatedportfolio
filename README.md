@@ -3,7 +3,7 @@
 Modern personal portfolio showcasing projects, skills, achievements, and contact details. Built with React + Vite + TypeScript and a clean Tailwind UI.
 
 ## Live
-- Portfolio: https://chandan785.netlify.app
+- Portfolio: https://portpholio-theta.vercel.app/
 
 ## Highlights
 - Responsive single-page layout
