@@ -70,7 +70,7 @@ const Navbar = () => {
           </ul>
 
           <motion.a
-            href="https://docs.google.com/document/d/1MrAoYW4HlovqDdtz8kAJj8I3u3LV0m9cpZUB0Tvz2k0/edit?usp=sharing"
+            href="https://drive.google.com/file/d/1-w0xtWRKkK5zxYpm9P70p87JollwcsMZ/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/30 transition-all"
@@ -110,7 +110,7 @@ const Navbar = () => {
                 </li>
               ))}
               <a
-                href="https://docs.google.com/document/d/1MrAoYW4HlovqDdtz8kAJj8I3u3LV0m9cpZUB0Tvz2k0/edit?usp=sharing"
+                href="https://drive.google.com/file/d/1-w0xtWRKkK5zxYpm9P70p87JollwcsMZ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold mt-4"
