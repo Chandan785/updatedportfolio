@@ -4,17 +4,34 @@ import { useRef, useState } from "react";
 import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Import project images
-import medease1 from "@/assets/projects/medease-1.jpg";
+import medeaseCover from "@/assets/projects/medease.png";
+import medease1 from "@/assets/projects/medease-1.png";
 import medease2 from "@/assets/projects/medease-2.png";
 import medease3 from "@/assets/projects/medease-3.png";
 import medease4 from "@/assets/projects/medease-4.png";
 import medease5 from "@/assets/projects/medease-5.png";
+import medeaseDashboard from "@/assets/projects/medease-dashboard.png";
 import educonnect1 from "@/assets/projects/educonnect-1.jpeg";
 import educonnect2 from "@/assets/projects/educonnect-2.jpeg";
 import educonnect3 from "@/assets/projects/educonnect-3.jpeg";
 import educonnect4 from "@/assets/projects/educonnect-4.jpeg";
 import educonnect5 from "@/assets/projects/educonnect-5.jpeg";
+import educonnectAuth from "@/assets/projects/educonnect-auth.jpeg";
+import educonnectFaculty from "@/assets/projects/educonnect-faculty.jpeg";
+import educonnectTimetable from "@/assets/projects/educonnect-timetable.jpeg";
 import minichatwebImg from "@/assets/projects/minichatweb.jpg";
+import mediclaimx1 from "@/assets/projects/mediclaimx-1.png";
+import mediclaimx2 from "@/assets/projects/mediclaimx-2.png";
+import mediclaimx3 from "@/assets/projects/mediclaimx-3.png";
+import mediclaimx4 from "@/assets/projects/mediclaimx-4.png";
+import mediclaimx5 from "@/assets/projects/mediclaimx-5.png";
+import engageAnalytics1 from "@/assets/projects/Engageanalytics-1.png";
+import engageAnalytics2 from "@/assets/projects/Engageanalytics-2.png";
+import engageAnalytics3 from "@/assets/projects/Engageanalytics-3.png";
+import engageAnalytics4 from "@/assets/projects/Engageanalytics-4.png";
+import engageAnalytics5 from "@/assets/projects/Engageanalytics-5.png";
+import engageAnalytics6 from "@/assets/projects/Engageanalytics-6.png";
+import engageAnalyticsCover from "@/assets/projects/EnagageAnalytics.png";
 
 interface ProjectImage {
   src: string;
@@ -48,11 +65,11 @@ const ImageCarousel = ({ images }: { images: ProjectImage[] }) => {
   if (images.length === 0) return null;
 
   return (
-    <div className="relative w-full h-full overflow-hidden group/carousel rounded-xl">
+    <div className="relative w-full h-full overflow-hidden group/carousel rounded-xl bg-background/60">
       <img
         src={images[currentIndex].src}
         alt={images[currentIndex].alt}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain transition-opacity duration-300"
       />
       
       {images.length > 1 && (
@@ -176,13 +193,57 @@ const Projects = () => {
         "A healthcare web application designed to simplify doctor–patient interactions. Features include online appointment booking, patient dashboard, report filtering, and secure communication.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
       liveLink: "https://medease-11.onrender.com",
-      githubLink: "https://github.com/Chandan785",
+      githubLink: "https://github.com/Chandan785/MedEase",
       images: [
+        { src: medeaseCover, alt: "MEDEASE Overview" },
         { src: medease1, alt: "MEDEASE Layout" },
         { src: medease2, alt: "MEDEASE Dashboard" },
         { src: medease3, alt: "MEDEASE Features" },
         { src: medease4, alt: "MEDEASE Appointments" },
         { src: medease5, alt: "MEDEASE Reports" },
+        { src: medeaseDashboard, alt: "MEDEASE Patient Dashboard" },
+      ],
+    },
+    {
+      title: "Medical Claims Processor (India)",
+      emoji: "🧾",
+      description:
+        "Built backend logic to process insurance policy and medical bill data. Integrated Google Gemini API for intelligent document analysis. Implemented secure admin workflows and validation pipelines. Designed APIs for approval workflows and financial calculations.",
+      tech: ["Node.js", "REST APIs", "Google Gemini API", "Git", "Postman"],
+      liveLink: "https://chandan785-mediclaimx-app-posmeb.streamlit.app/",
+      githubLink: "https://github.com/Chandan785/MediClaimX",
+      images: [
+        { src: mediclaimx1, alt: "Medical Claims Processor Overview" },
+        { src: mediclaimx2, alt: "Medical Claims Processor Upload" },
+        { src: mediclaimx3, alt: "Medical Claims Processor Results" },
+        { src: mediclaimx4, alt: "Medical Claims Processor Admin Review" },
+        { src: mediclaimx5, alt: "Medical Claims Processor Reports" },
+      ],
+    },
+    {
+      title: "ENGAGE Analytics",
+      emoji: "📊",
+      description:
+        "AI-powered platform that measures real-time engagement in virtual meetings using face and gesture signals, with privacy-first analytics and admin dashboards.",
+      tech: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Vite",
+        "Supabase",
+        "JWT",
+      ],
+      liveLink: "https://engageanalytic.me/",
+      githubLink: "https://github.com/Chandan785/engageanalytics",
+      images: [
+        { src: engageAnalyticsCover, alt: "ENGAGE Analytics Cover" },
+        { src: engageAnalytics1, alt: "ENGAGE Analytics Overview" },
+        { src: engageAnalytics2, alt: "ENGAGE Analytics Dashboard" },
+        { src: engageAnalytics3, alt: "ENGAGE Analytics Insights" },
+        { src: engageAnalytics4, alt: "ENGAGE Analytics Engagement" },
+        { src: engageAnalytics5, alt: "ENGAGE Analytics Reports" },
+        { src: engageAnalytics6, alt: "ENGAGE Analytics Admin" },
       ],
     },
     {
@@ -192,13 +253,16 @@ const Projects = () => {
         "A full-stack student–faculty portal with secure backend using Node.js, Express.js, JWT Auth, and MongoDB. Features faculty finder, timetable viewing, and feedback system.",
       tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary"],
       liveLink: "#",
-      githubLink: "https://github.com/Chandan785",
+      githubLink: "https://github.com/Chandan785/Edu-nnect",
       images: [
         { src: educonnect1, alt: "EduConnect Login" },
         { src: educonnect2, alt: "EduConnect Dashboard" },
         { src: educonnect3, alt: "EduConnect Timetable" },
         { src: educonnect4, alt: "EduConnect Faculty" },
         { src: educonnect5, alt: "EduConnect Features" },
+        { src: educonnectAuth, alt: "EduConnect Auth" },
+        { src: educonnectFaculty, alt: "EduConnect Faculty Directory" },
+        { src: educonnectTimetable, alt: "EduConnect Timetable View" },
       ],
       video: "https://www.galgotiasuniversity.edu.in/public/frontend/videos/Websitevideo.mp4",
     },
@@ -209,7 +273,7 @@ const Projects = () => {
         "A web-based chat app for smooth, persistent conversations. Users can send, edit, and delete messages with timestamps. Backed by MongoDB storage with responsive UI.",
       tech: ["Node.js", "Express.js", "MongoDB", "EJS", "TailwindCSS"],
       liveLink: "#",
-      githubLink: "https://github.com/Chandan785",
+      githubLink: "https://github.com/Chandan785/minichatweb",
       images: [
         { src: minichatwebImg, alt: "MiniChatWeb Interface" },
       ],

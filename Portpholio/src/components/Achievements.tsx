@@ -61,6 +61,15 @@ const Achievements = () => {
       skills: "Prompt engineering and applying generative AI tools in real-world use cases.",
       link: "https://drive.google.com/file/d/130cqSmn80T6LsGP2zjhitgU0Q6BAyc32/view?usp=sharing",
     },
+    {
+      title: "Indian Oil Corporation Limited (IOCL) Internship",
+      emoji: "🏭",
+      focus:
+        "Exposure to enterprise IT systems, operational workflows, and IT support in a PSU environment.",
+      skills:
+        "Process documentation, data handling and reporting, security awareness, and cross-team coordination.",
+      link: "https://drive.google.com/file/d/1tseQoVMSQ2eVMON-hzipDBrmYhSrvrph/view?usp=sharing",
+    },
   ];
 
   const experiences = [
