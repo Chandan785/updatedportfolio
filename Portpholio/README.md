@@ -50,7 +50,9 @@ If you want the contact form to send emails through Supabase functions, add thes
 
 ```
 VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+# Optional fallback if you only have the publishable key
+# VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
 ```
 
 Then set the Edge Function secrets (these are **not** Vite env vars):
