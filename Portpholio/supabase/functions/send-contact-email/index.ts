@@ -1,5 +1,9 @@
  import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 
+export const config = {
+  auth: false,
+};
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -73,7 +77,9 @@ serve(async (req) => {
   // 🔹 ENV variables (CORRECT names)
   const resendApiKey = Deno.env.get("RESEND_API_KEY");
   const fromEmail =
-    Deno.env.get("RESEND_FROM_EMAIL") ?? "onboarding@resend.dev";
+    Deno.env.get("CONTACT_FROM_EMAIL") ??
+    Deno.env.get("RESEND_FROM_EMAIL") ??
+    "onboarding@resend.dev";
   const toEmail = Deno.env.get("CONTACT_TO_EMAIL");
 
   if (!resendApiKey) {
