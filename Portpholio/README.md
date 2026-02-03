@@ -53,6 +53,20 @@ VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
 ```
 
+Then set the Edge Function secrets (these are **not** Vite env vars):
+
+```sh
+supabase secrets set RESEND_API_KEY=your_resend_api_key \
+	CONTACT_TO_EMAIL=your_email@gmail.com \
+	CONTACT_FROM_EMAIL=verified_sender@yourdomain.com
+```
+
+Deploy the function:
+
+```sh
+supabase functions deploy send-contact-email
+```
+
 ## Folder Structure
 ```
 Portpholio/
