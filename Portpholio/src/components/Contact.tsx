@@ -23,7 +23,7 @@ const Contact = () => {
     { icon: <Mail size={20} />, label: "Email", value: "chandankumar700785@gmail.com", href: "mailto:chandankumar700785@gmail.com" },
     { icon: <Linkedin size={20} />, label: "LinkedIn", value: "linkedin.com/in/chandank72", href: "https://www.linkedin.com/in/chandank72/" },
     { icon: <Github size={20} />, label: "GitHub", value: "github.com/Chandan785", href: "https://github.com/Chandan785" },
-    { icon: <Globe size={20} />, label: "Portfolio", value: "chandan785.netlify.app", href: "https://chandan785.netlify.app" },
+    { icon: <Globe size={20} />, label: "Portfolio", value: "portpholio-theta.vercel.app", href: "https://portpholio-theta.vercel.app/" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
