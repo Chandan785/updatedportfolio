@@ -30,6 +30,7 @@ Modern personal portfolio showcasing projects, skills, achievements, and contact
 - **MedEase** — healthcare web application
 	- Repo: https://github.com/Chandan785/MedEase
 - **EduConnect** — student–faculty portal
+	- Live: https://educonnect-frontend-lewk.onrender.com/
 	- Repo: https://github.com/Chandan785/Edu-nnect
 - **MiniChatWeb** — chat app
 	- Repo: https://github.com/Chandan785/minichatweb

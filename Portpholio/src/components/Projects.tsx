@@ -252,7 +252,7 @@ const Projects = () => {
       description:
         "A full-stack student–faculty portal with secure backend using Node.js, Express.js, JWT Auth, and MongoDB. Features faculty finder, timetable viewing, and feedback system.",
       tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary"],
-      liveLink: "#",
+      liveLink: "https://educonnect-frontend-lewk.onrender.com/",
       githubLink: "https://github.com/Chandan785/Edu-nnect",
       images: [
         { src: educonnect1, alt: "EduConnect Login" },
