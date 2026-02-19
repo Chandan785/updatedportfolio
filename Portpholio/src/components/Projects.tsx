@@ -49,6 +49,13 @@ interface Project {
   video?: string;
 }
 
+const openExternalLink = (url: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+  if (!url || url === "#") return;
+  event.preventDefault();
+  event.stopPropagation();
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 const ImageCarousel = ({ images }: { images: ProjectImage[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -163,6 +170,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={openExternalLink(project.githubLink)}
             className="flex items-center gap-2 px-4 py-2 bg-secondary text-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
           >
             <Github size={16} /> GitHub
@@ -171,6 +179,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={openExternalLink(project.liveLink)}
             className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors text-sm font-medium"
           >
             <ExternalLink size={16} /> Live Demo
