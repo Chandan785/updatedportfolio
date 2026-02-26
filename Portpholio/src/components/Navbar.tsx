@@ -70,7 +70,7 @@ const Navbar = () => {
           </ul>
 
           <motion.a
-            href="https://drive.google.com/file/d/1-w0xtWRKkK5zxYpm9P70p87JollwcsMZ/view?usp=sharing"
+            href="https://drive.google.com/file/d/1lWvpnVRvEQZIDoxhfzLKrsquxkR1c9pP/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/30 transition-all"
