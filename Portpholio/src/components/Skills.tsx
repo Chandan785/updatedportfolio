@@ -20,12 +20,11 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const technicalSkills = [
-    { icon: <Code size={24} />, name: "JavaScript, Next.js, React, Node.js, Express.js" },
-    { icon: <Laptop size={24} />, name: "HTML5, CSS3, Tailwind CSS" },
-    { icon: <Server size={24} />, name: "REST APIs, JWT Authentication" },
-    { icon: <Database size={24} />, name: "MongoDB, MySQL, SQL" },
-    { icon: <GitBranch size={24} />, name: "Git, GitHub, Postman, VS Code" },
-    { icon: <Shield size={24} />, name: "DSA, OOP, DBMS, OS, SDLC" },
+    { icon: <Server size={24} />, name: "Backend: Node.js, Express.js, REST APIs, JWT" },
+    { icon: <Laptop size={24} />, name: "Frontend: React.js, Next.js" },
+    { icon: <Database size={24} />, name: "Database: MongoDB, MySQL" },
+    { icon: <GitBranch size={24} />, name: "Tools: Git, Postman, Cloudinary" },
+    { icon: <Shield size={24} />, name: "Concepts: DSA, OOP, DBMS" },
   ];
 
   const softSkills = [

@@ -48,11 +48,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <p className="text-muted-foreground text-lg leading-relaxed">
-            I'm a dedicated Full-Stack Developer passionate about creating responsive, 
-            user-friendly web applications. Currently pursuing B.Tech in Computer Science 
-            at Galgotias University, I specialize in building secure, production-ready 
-            applications using modern technologies. As the Mobile Development Club Head, 
-            I lead workshops and guide peers in project development.
+           I am a Computer Science undergraduate specializing in backend-focused full-stack development. I build secure and scalable applications using Node.js, MongoDB, and modern web technologies. My projects, including ENGAGE Analytics and MedEase, solve real-world problems through structured backend logic and privacy-conscious design. Beyond development, I serve as Head of the Mobile Development Club, mentoring peers and leading technical initiatives while continuously improving my system design skills.
           </p>
         </motion.div>
       </div>

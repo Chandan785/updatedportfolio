@@ -28,9 +28,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">About This Site</h3>
             <p className="text-muted-foreground leading-relaxed">
-              I am Chandan Kumar, a dedicated professional passionate about web development. 
-              This portfolio showcases my skills and projects, demonstrating my ability to 
-              create responsive and user-friendly web solutions.
+             This portfolio showcases my backend-focused full-stack projects, including ENGAGE Analytics and MedEase. It reflects my approach to building secure, scalable applications using structured APIs and clean system design. The work presented here demonstrates practical implementation and production-ready development standards.
             </p>
           </div>
 

@@ -41,7 +41,9 @@ interface ProjectImage {
 interface Project {
   title: string;
   emoji: string;
-  description: string;
+  problem: string;
+  solution: string;
+  impact: string;
   tech: string[];
   liveLink: string;
   githubLink: string;
@@ -118,17 +120,17 @@ const ImageCarousel = ({ images }: { images: ProjectImage[] }) => {
 };
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <div className="flex-shrink-0 w-[800px] bg-card rounded-2xl overflow-hidden border border-primary/20 card-hover mx-4">
-    <div className="flex h-[320px]">
+  <div className="flex-shrink-0 self-start w-[800px] h-[460px] bg-card rounded-2xl overflow-hidden border border-primary/20 card-hover mx-4">
+    <div className="flex h-full">
       {/* Left side - Image Carousel */}
-      <div className="w-[320px] h-full p-4 flex-shrink-0">
+      <div className="w-[320px] self-stretch p-4 flex-shrink-0">
         <ImageCarousel images={project.images} />
       </div>
 
       {/* Right side - Content */}
-      <div className="flex-1 p-6 flex flex-col justify-between">
+      <div className="flex-1 p-6 flex flex-col h-full">
         {/* Title and Video Badge */}
-        <div>
+        <div className="min-h-0 overflow-y-auto pr-1">
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-xl font-bold flex items-center gap-2">
               <span>{project.emoji}</span>
@@ -147,9 +149,20 @@ const ProjectCard = ({ project }: { project: Project }) => (
           </div>
 
           {/* Description */}
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-            {project.description}
-          </p>
+          <div className="text-muted-foreground text-sm leading-relaxed mb-4 space-y-1.5">
+            <p>
+              <strong className="text-foreground">Problem:- </strong>
+              {project.problem}
+            </p>
+            <p>
+              <strong className="text-foreground">Solution:- </strong>
+              {project.solution}
+            </p>
+            <p>
+              <strong className="text-foreground">Impact:- </strong>
+              {project.impact}
+            </p>
+          </div>
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-4">
@@ -165,7 +178,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
         </div>
 
         {/* Links */}
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-3 flex-shrink-0">
           <a
             href={project.githubLink}
             target="_blank"
@@ -198,9 +211,13 @@ const Projects = () => {
     {
       title: "MEDEASE",
       emoji: "📱",
-      description:
-        "A healthcare web application designed to simplify doctor–patient interactions. Features include online appointment booking, patient dashboard, report filtering, and secure communication.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
+      problem:
+        "During medical emergencies, patients often cannot provide past medical records quickly.",
+      solution:
+        "Developed a secure web platform to upload and access medical records instantly during emergencies.",
+      impact:
+        "Improved record availability and reliability by designing secure backend data storage, implementing user authentication, and building a robust MongoDB schema for medical record handling.",
+      tech: ["Node.js", "MongoDB", "HTML", "CSS", "JavaScript"],
       liveLink: "https://medease-11.onrender.com",
       githubLink: "https://github.com/Chandan785/MedEase",
       images: [
@@ -216,9 +233,12 @@ const Projects = () => {
     {
       title: "Medical Claims Processor (India)",
       emoji: "🧾",
-      description:
-        "Built backend logic to process insurance policy and medical bill data. Integrated Google Gemini API for intelligent document analysis. Implemented secure admin workflows and validation pipelines. Designed APIs for approval workflows and financial calculations.",
-      tech: ["Node.js", "REST APIs", "Google Gemini API", "Git", "Postman"],
+      problem: "Manual claim verification is slow and error-prone.",
+      solution:
+        "Built an AI-assisted system to extract medical bill data, apply policy-based coverage logic, and automate reimbursement calculations with admin review workflows.",
+      impact:
+        "Reduced manual workload and improved claim decision consistency through intelligent extraction, policy validation, and streamlined admin review.",
+      tech: ["Python", "Streamlit", "Pandas", "Gemini API"],
       liveLink: "https://chandan785-mediclaimx-app-posmeb.streamlit.app/",
       githubLink: "https://github.com/Chandan785/MediClaimX",
       images: [
@@ -232,17 +252,13 @@ const Projects = () => {
     {
       title: "ENGAGE Analytics",
       emoji: "📊",
-      description:
-        "AI-powered platform that measures real-time engagement in virtual meetings using face and gesture signals, with privacy-first analytics and admin dashboards.",
-      tech: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "Vite",
-        "Supabase",
-        "JWT",
-      ],
+      problem:
+        "Virtual meeting platforms track attendance but not real engagement.",
+      solution:
+        "Built a privacy-first, real-time engagement analytics system that computes attention scores using behavioral signals.",
+      impact:
+        "Enabled actionable engagement insights by designing REST APIs and role-based access control, implementing scoring logic, and delivering a secure analytics dashboard.",
+      tech: ["React", "Node.js", "Supabase", "TypeScript"],
       liveLink: "https://engageanalytic.me/",
       githubLink: "https://github.com/Chandan785/engageanalytics",
       images: [
@@ -258,9 +274,13 @@ const Projects = () => {
     {
       title: "EduConnect",
       emoji: "🎓",
-      description:
-        "A full-stack student–faculty portal with secure backend using Node.js, Express.js, JWT Auth, and MongoDB. Features faculty finder, timetable viewing, and feedback system.",
-      tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary"],
+      problem:
+        "Students lack centralized access to faculty availability and academic coordination.",
+      solution:
+        "Created a role-based portal to search faculty details, view timetables, and manage communication.",
+      impact:
+        "Improved academic coordination with modular REST APIs, secure JWT authentication, and a scalable MongoDB schema for user management.",
+      tech: ["Node.js", "Express.js", "MongoDB"],
       liveLink: "https://educonnect-frontend-lewk.onrender.com/",
       githubLink: "https://github.com/Chandan785/Edu-nnect",
       images: [
@@ -278,9 +298,13 @@ const Projects = () => {
     {
       title: "MiniChatWeb",
       emoji: "💬",
-      description:
-        "A web-based chat app for smooth, persistent conversations. Users can send, edit, and delete messages with timestamps. Backed by MongoDB storage with responsive UI.",
-      tech: ["Node.js", "Express.js", "MongoDB", "EJS", "TailwindCSS"],
+      problem:
+        "Understanding real-time backend communication requires persistent message handling.",
+      solution:
+        "Built a chat system with MongoDB-backed message persistence and edit/delete functionality.",
+      impact:
+        "Improved reliability of real-time conversations through persistent storage, message lifecycle operations, and consistent backend communication flow.",
+      tech: ["Node.js", "Express", "MongoDB"],
       liveLink: "#",
       githubLink: "https://github.com/Chandan785/minichatweb",
       images: [
@@ -303,7 +327,7 @@ const Projects = () => {
 
         {/* Seamless Marquee */}
         <div className="overflow-hidden">
-          <div className="flex animate-marquee w-max">
+          <div className="flex items-start animate-marquee w-max">
             {/* First set */}
             {projects.map((project, index) => (
               <ProjectCard key={`first-${index}`} project={project} />

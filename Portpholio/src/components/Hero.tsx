@@ -9,7 +9,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(100);
 
-  const titles = ["Full-Stack Developer", "Web Developer", "Problem Solver"];
+  const titles = ["Backend Developer","Full-Stack Developer", "Web Developer", "Problem Solver"];
 
   useEffect(() => {
     const handleTyping = () => {
@@ -89,9 +89,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            Full-Stack Developer skilled in JavaScript, Next.js, Node.js, Express, and MongoDB
-            with hands-on experience building secure, production-ready web applications.
-            Committed to continuous learning and delivering innovative solutions.
+           I build secure, privacy-conscious web applications and AI-powered systems that solve real-world problems through structured backend logic and scalable architecture.
           </motion.p>
 
           {/* Social Icons */}
