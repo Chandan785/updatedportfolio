@@ -42,10 +42,24 @@ const Contact = () => {
       });
 
       if (error) {
-        let message = error.message;
+        let message = error.message || "Failed to send message. Please try again.";
         try {
-          const contextBody = (error as any)?.context?.body ?? (error as any)?.context?.response?.body;
-          const parsed = typeof contextBody === "string" ? JSON.parse(contextBody) : contextBody;
+          const context = (error as any)?.context;
+          let parsed: any;
+
+          if (typeof Response !== "undefined" && context instanceof Response) {
+            const cloned = context.clone();
+            try {
+              parsed = await cloned.json();
+            } catch {
+              const text = await cloned.text();
+              parsed = text ? JSON.parse(text) : undefined;
+            }
+          } else {
+            const contextBody = context?.body ?? context?.response?.body;
+            parsed = typeof contextBody === "string" ? JSON.parse(contextBody) : contextBody;
+          }
+
           if (parsed?.error) {
             message = parsed.error;
           }

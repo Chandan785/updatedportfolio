@@ -1,7 +1,7 @@
  import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 
 export const config = {
-  auth: false,
+  verify_jwt: false,
 };
 
 const corsHeaders = {
@@ -51,7 +51,10 @@ serve(async (req) => {
     );
   }
 
-  const { name, email, subject, message } = payload;
+  const name = payload.name?.trim();
+  const email = payload.email?.trim();
+  const subject = payload.subject?.trim();
+  const message = payload.message?.trim();
 
   // 🔹 Validate fields
   if (!name || !email || !subject || !message) {
@@ -85,7 +88,7 @@ serve(async (req) => {
   if (!resendApiKey) {
     console.error("❌ Missing RESEND_API_KEY");
     return new Response(
-      JSON.stringify({ error: "Server misconfiguration" }),
+      JSON.stringify({ error: "Email service is not configured (missing RESEND_API_KEY)" }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -96,7 +99,7 @@ serve(async (req) => {
   if (!toEmail) {
     console.error("❌ Missing CONTACT_TO_EMAIL");
     return new Response(
-      JSON.stringify({ error: "Server misconfiguration" }),
+      JSON.stringify({ error: "Recipient email is not configured (missing CONTACT_TO_EMAIL)" }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -140,8 +143,17 @@ ${message}
       const errorText = await resendResponse.text();
       console.error("❌ Resend API error:", errorText);
 
+      let resendMessage = "Failed to send email";
+      try {
+        const parsed = JSON.parse(errorText);
+        resendMessage =
+          parsed?.message ?? parsed?.error?.message ?? parsed?.error ?? resendMessage;
+      } catch {
+        // ignore parsing errors and keep fallback message
+      }
+
       return new Response(
-        JSON.stringify({ error: "Failed to send email" }),
+        JSON.stringify({ error: resendMessage }),
         {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
